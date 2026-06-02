@@ -9,7 +9,7 @@
         @csrf
 
         <x-select name="jenis" label="Jenis Transaksi" required="true"
-            :options="['PEMASUKAN'=>'💰 Pemasukan','PENGELUARAN'=>'💸 Pengeluaran']" />
+            :options="['PEMASUKAN'=>'Pemasukan','PENGELUARAN'=>'Pengeluaran']" />
 
         <x-select name="rt_rw_scope" label="Lingkup" required="true"
             :options="['RT'=>'Kas RT','RW'=>'Kas RW']" />
