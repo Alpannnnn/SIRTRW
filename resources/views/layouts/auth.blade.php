@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Masuk') — SIRTRW</title>
-    <meta name="description" content="Portal Digital RT/RW Murni — Sistem Informasi Terpadu untuk Tata Kelola Lingkungan">
+    <meta name="description" content="Portal Digital RT/RW Jalan Nikel — Sistem Informasi Terpadu untuk Tata Kelola Lingkungan">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #f4f6f9;
+            background: #0f172a;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -23,8 +23,8 @@
 
         /* ── TOP NAV ── */
         .auth-topnav {
-            background: #ffffff;
-            border-bottom: 3px solid #c0392b;
+            background: #1e293b;
+            border-bottom: 3px solid #3b82f6;
             padding: 0 24px;
             height: 56px;
             display: flex;
@@ -41,7 +41,7 @@
         .auth-topnav-logo {
             width: 36px;
             height: 36px;
-            background: #c0392b;
+            background: #3b82f6;
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -51,7 +51,7 @@
         .auth-topnav-name {
             font-size: 0.95rem;
             font-weight: 800;
-            color: #1a1a2e;
+            color: #f1f5f9;
             letter-spacing: 0.02em;
         }
         .auth-topnav-sub {
@@ -64,14 +64,14 @@
             align-items: center;
             gap: 5px;
             font-size: 0.82rem;
-            color: #5a6a7a;
+            color: #94a3b8;
             text-decoration: none;
             padding: 6px 12px;
-            border: 1.5px solid #dde3ec;
+            border: 1.5px solid rgba(148, 163, 184, 0.15);
             border-radius: 7px;
             transition: all 0.18s;
         }
-        .auth-topnav-back:hover { border-color: #c0392b; color: #c0392b; }
+        .auth-topnav-back:hover { border-color: #3b82f6; color: #3b82f6; }
         .auth-topnav-back svg { width: 14px; height: 14px; }
 
         /* ── MAIN WRAPPER ── */
@@ -84,13 +84,14 @@
 
         /* ── LEFT PANEL (info) ── */
         .auth-panel-left {
-            background: #c0392b;
+            background: #1e293b;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 56px 48px;
             position: relative;
             overflow: hidden;
+            border-right: 1px solid rgba(148, 163, 184, 0.1);
         }
         .auth-panel-left::before {
             content: '';
@@ -159,7 +160,7 @@
         .auth-left-feature-icon {
             width: 36px;
             height: 36px;
-            background: rgba(255,255,255,0.15);
+            background: rgba(59, 130, 246, 0.15);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -170,7 +171,7 @@
 
         /* ── RIGHT PANEL (form) ── */
         .auth-panel-right {
-            background: #ffffff;
+            background: #0f172a;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -185,13 +186,13 @@
         .auth-form-title {
             font-size: 1.4rem;
             font-weight: 800;
-            color: #1a1a2e;
+            color: #f1f5f9;
             margin-bottom: 6px;
             letter-spacing: -0.01em;
         }
         .auth-form-sub {
             font-size: 0.85rem;
-            color: #8a9ab0;
+            color: #94a3b8;
             margin-bottom: 28px;
         }
 
@@ -203,35 +204,35 @@
             display: block;
             font-size: 0.83rem;
             font-weight: 600;
-            color: #374151;
+            color: #cbd5e1;
             margin-bottom: 6px;
         }
         .af-label span.required {
-            color: #c0392b;
+            color: #f43f5e;
             margin-left: 2px;
         }
         .af-input {
             width: 100%;
-            background: #f9fafb;
-            border: 1.5px solid #dde3ec;
+            background: #1e293b;
+            border: 1.5px solid rgba(148, 163, 184, 0.15);
             border-radius: 9px;
             padding: 11px 14px;
             font-size: 0.9rem;
-            color: #1a1a2e;
+            color: #f1f5f9;
             font-family: 'Inter', sans-serif;
             transition: all 0.18s;
             outline: none;
         }
         .af-input:focus {
-            border-color: #c0392b;
-            background: #fff;
-            box-shadow: 0 0 0 3px rgba(192,57,43,0.1);
+            border-color: #3b82f6;
+            background: #1e293b;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
         }
-        .af-input::placeholder { color: #b0bec5; }
-        .af-input.is-error { border-color: #c0392b; background: #fef2f2; }
+        .af-input::placeholder { color: #64748b; }
+        .af-input.is-error { border-color: #f43f5e; background: rgba(244, 63, 94, 0.05); }
         .af-error {
             font-size: 0.75rem;
-            color: #c0392b;
+            color: #f43f5e;
             margin-top: 4px;
             display: flex;
             align-items: center;
@@ -245,12 +246,12 @@
         }
         .af-select {
             width: 100%;
-            background: #f9fafb;
-            border: 1.5px solid #dde3ec;
+            background: #1e293b;
+            border: 1.5px solid rgba(148, 163, 184, 0.15);
             border-radius: 9px;
             padding: 11px 14px;
             font-size: 0.9rem;
-            color: #1a1a2e;
+            color: #f1f5f9;
             font-family: 'Inter', sans-serif;
             transition: all 0.18s;
             outline: none;
@@ -261,9 +262,9 @@
             background-size: 16px;
         }
         .af-select:focus {
-            border-color: #c0392b;
-            background-color: #fff;
-            box-shadow: 0 0 0 3px rgba(192,57,43,0.1);
+            border-color: #3b82f6;
+            background-color: #1e293b;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
         }
         .af-row {
             display: grid;
@@ -275,12 +276,12 @@
         .af-info-box {
             display: flex;
             gap: 10px;
-            background: #eff6ff;
-            border: 1.5px solid #bfdbfe;
+            background: rgba(59, 130, 246, 0.15);
+            border: 1.5px solid rgba(59, 130, 246, 0.3);
             border-radius: 9px;
             padding: 12px 14px;
             font-size: 0.82rem;
-            color: #1d4ed8;
+            color: #60a5fa;
             margin-bottom: 22px;
             line-height: 1.5;
         }
@@ -302,19 +303,19 @@
         .af-check input[type="checkbox"] {
             width: 17px;
             height: 17px;
-            border: 1.5px solid #dde3ec;
+            border: 1.5px solid rgba(148, 163, 184, 0.3);
             border-radius: 4px;
-            accent-color: #c0392b;
+            accent-color: #3b82f6;
             cursor: pointer;
         }
         .af-check label {
             font-size: 0.83rem;
-            color: #5a6a7a;
+            color: #94a3b8;
             cursor: pointer;
         }
         .af-forgot {
             font-size: 0.82rem;
-            color: #c0392b;
+            color: #3b82f6;
             font-weight: 600;
             text-decoration: none;
         }
@@ -323,7 +324,7 @@
         /* ── SUBMIT BUTTON ── */
         .af-submit {
             width: 100%;
-            background: #c0392b;
+            background: #3b82f6;
             color: white;
             border: none;
             border-radius: 9px;
@@ -338,18 +339,18 @@
             gap: 8px;
             transition: all 0.18s;
         }
-        .af-submit:hover { background: #e74c3c; transform: translateY(-1px); }
+        .af-submit:hover { background: #2563eb; transform: translateY(-1px); }
         .af-submit svg { width: 18px; height: 18px; }
 
         /* ── FOOTER LINK ── */
         .af-footer-link {
             text-align: center;
             font-size: 0.85rem;
-            color: #8a9ab0;
+            color: #94a3b8;
             margin-top: 20px;
         }
         .af-footer-link a {
-            color: #c0392b;
+            color: #3b82f6;
             font-weight: 700;
             text-decoration: none;
         }
@@ -358,7 +359,7 @@
         /* ── DIVIDER ── */
         .af-divider {
             height: 1px;
-            background: #eef0f4;
+            background: rgba(148, 163, 184, 0.15);
             margin: 20px 0;
         }
 
@@ -366,9 +367,9 @@
         .auth-copyright {
             text-align: center;
             font-size: 0.72rem;
-            color: #b0bec5;
+            color: #64748b;
             padding: 14px 0;
-            border-top: 1px solid #eef0f4;
+            border-top: 1px solid rgba(148, 163, 184, 0.15);
         }
 
         /* ── RESPONSIVE ── */
@@ -388,7 +389,7 @@
             <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 4L4 16v20h10V24h12v12h10V16L20 4z"/></svg>
         </div>
         <div>
-            <div class="auth-topnav-name">SIRTRW MURNI</div>
+            <div class="auth-topnav-name">SIRTRW JALAN NIKEL</div>
             <div class="auth-topnav-sub">Portal Digital RT/RW Resmi</div>
         </div>
     </a>
@@ -410,7 +411,7 @@
             </div>
 
             <h2 class="auth-left-title">
-                Layanan Warga<br>RT/RW Murni<br>Kini Serba Digital
+                Layanan Warga<br>RT/RW Jalan Nikel<br>Kini Serba Digital
             </h2>
 
             <p class="auth-left-desc">
@@ -451,7 +452,7 @@
         <div class="auth-form-wrap">
             @yield('content')
             <div class="auth-copyright">
-                &copy; {{ date('Y') }} SIRTRW Murni &nbsp;·&nbsp; Portal Digital RT/RW Resmi
+                &copy; {{ date('Y') }} SIRTRW Jalan Nikel &nbsp;·&nbsp; Portal Digital RT/RW Resmi
             </div>
         </div>
     </div>

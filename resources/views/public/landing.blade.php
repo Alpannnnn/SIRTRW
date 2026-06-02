@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Resmi RT/RW Murni — SIRTRW</title>
-    <meta name="description" content="Portal Digital Resmi RT/RW Murni. Layanan pengumuman, surat, aduan, kas, dan agenda warga secara online.">
+    <title>Portal Digital RT/RW Jalan Nikel — SIRTRW</title>
+    <meta name="description" content="Portal Digital Resmi RT/RW Jalan Nikel, Kelurahan Bugel, Kota Tangerang. Layanan pengumuman, surat, aduan, kas, dan agenda warga secara online.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,17 +12,20 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --red:       #c0392b;
-            --red-light: #e74c3c;
-            --red-bg:    #fef2f2;
-            --text:      #1a1a2e;
-            --text-sub:  #5a6a7a;
-            --text-muted:#8a9ab0;
-            --border:    #dde3ec;
-            --bg:        #f4f6f9;
-            --white:     #ffffff;
-            --blue:      #1d4ed8;
-            --green:     #16a34a;
+            --red:       #3b82f6;
+            --red-light: #2563eb;
+            --red-bg:    rgba(59, 130, 246, 0.1);
+            --text:      #f1f5f9;
+            --text-sub:  #94a3b8;
+            --text-muted:#64748b;
+            --border:    rgba(148, 163, 184, 0.15);
+            --bg:        #0f172a;
+            --white:     #1e293b;
+            --blue:      #06b6d4;
+            --green:     #10b981;
+            --accent-urgent:        #f43f5e;
+            --accent-urgent-bg:     rgba(244, 63, 94, 0.15);
+            --accent-urgent-border: rgba(244, 63, 94, 0.3);
         }
 
         body {
@@ -166,8 +169,8 @@
 
         /* ── TICKER ── */
         .ticker-bar {
-            background: var(--red-bg);
-            border-bottom: 1px solid #fca5a5;
+            background: var(--accent-urgent-bg);
+            border-bottom: 1px solid var(--accent-urgent-border);
             overflow: hidden;
         }
         .ticker-inner {
@@ -177,7 +180,7 @@
             gap: 16px;
         }
         .ticker-label {
-            background: var(--red);
+            background: var(--accent-urgent);
             color: white;
             font-size: 0.7rem;
             font-weight: 700;
@@ -203,9 +206,9 @@
         .ticker-content span {
             padding: 0 36px;
             font-size: 0.83rem;
-            color: var(--red);
+            color: var(--accent-urgent);
             font-weight: 600;
-            border-right: 1px solid #fca5a5;
+            border-right: 1px solid var(--accent-urgent-border);
         }
 
         /* ── HERO ── */
@@ -227,7 +230,7 @@
             align-items: center;
             gap: 7px;
             background: var(--red-bg);
-            border: 1px solid #fca5a5;
+            border: 1px solid rgba(59, 130, 246, 0.3);
             border-radius: 6px;
             padding: 5px 14px;
             font-size: 0.75rem;
@@ -442,11 +445,11 @@
             transition: all 0.22s;
         }
         .peng-card.urgent {
-            border-color: #fca5a5;
-            border-top: 3px solid var(--red);
+            border-color: var(--accent-urgent-border);
+            border-top: 3px solid var(--accent-urgent);
         }
         .peng-card:not(.urgent) {
-            border-top: 3px solid var(--blue);
+            border-top: 3px solid var(--red);
         }
         .peng-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.09); transform: translateY(-3px); }
         .peng-meta {
@@ -602,7 +605,7 @@
             margin: 0 auto;
             text-align: center;
             background: var(--red-bg);
-            border: 1.5px solid #fca5a5;
+            border: 1.5px solid rgba(59, 130, 246, 0.3);
             border-radius: 20px;
             padding: 56px 40px;
         }
@@ -663,7 +666,7 @@
 
         /* ── FOOTER ── */
         .footer {
-            background: #1a1a2e;
+            background: #090d16;
             color: white;
             padding: 40px 24px 20px;
         }
@@ -729,7 +732,7 @@
             color: #64748b;
             transition: color 0.18s;
         }
-        .footer-links a:hover { color: #fca5a5; }
+        .footer-links a:hover { color: var(--red-light); }
         .footer-bottom {
             display: flex;
             justify-content: space-between;
@@ -777,7 +780,7 @@
     <div class="top-bar-inner">
         <div class="top-bar-left">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z"/></svg>
-            Portal Resmi &nbsp;·&nbsp; Rukun Tetangga &amp; Rukun Warga Murni &nbsp;·&nbsp; Kelurahan Murni, Jakarta Utara
+            Portal Resmi &nbsp;·&nbsp; Rukun Tetangga &amp; Rukun Warga Jalan Nikel &nbsp;·&nbsp; Kelurahan Bugel, Kota Tangerang
         </div>
         <div class="top-bar-right">
             <span>
@@ -801,7 +804,7 @@
                 <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 4L4 16v20h10V24h12v12h10V16L20 4z"/></svg>
             </div>
             <div>
-                <div class="brand-text-title">SIRTRW MURNI</div>
+                <div class="brand-text-title">SIRTRW JALAN NIKEL</div>
                 <div class="brand-text-sub">Sistem Informasi Portal Digital RT/RW</div>
             </div>
         </a>
@@ -884,7 +887,7 @@
             <h1 class="hero-title">
                 Selamat Datang di<br>
                 <span>Portal Digital</span><br>
-                RT/RW Murni
+                RT/RW Jalan Nikel
             </h1>
 
             <p class="hero-desc">
@@ -929,31 +932,31 @@
         {{-- STAT CARDS --}}
         <div class="hero-stats">
             <div class="hero-stat-card">
-                <div class="hero-stat-icon" style="background:#eff6ff;">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#1d4ed8"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg>
+                <div class="hero-stat-icon" style="background:rgba(59,130,246,0.15);">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#3b82f6"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg>
                 </div>
-                <div class="hero-stat-val" style="color:#1d4ed8;">{{ $stats['total_warga'] }}</div>
+                <div class="hero-stat-val" style="color:#3b82f6;">{{ $stats['total_warga'] }}</div>
                 <div class="hero-stat-label">Warga Terdaftar</div>
             </div>
             <div class="hero-stat-card">
-                <div class="hero-stat-icon" style="background:#f0fdf4;">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#16a34a"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                <div class="hero-stat-icon" style="background:rgba(16,185,129,0.15);">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#10b981"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
                 </div>
-                <div class="hero-stat-val" style="color:#16a34a;">{{ $stats['total_surat'] }}</div>
+                <div class="hero-stat-val" style="color:#10b981;">{{ $stats['total_surat'] }}</div>
                 <div class="hero-stat-label">Surat Diselesaikan</div>
             </div>
             <div class="hero-stat-card">
-                <div class="hero-stat-icon" style="background:#fffbeb;">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#d97706"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5"/></svg>
+                <div class="hero-stat-icon" style="background:rgba(245,158,11,0.15);">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#f59e0b"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5"/></svg>
                 </div>
-                <div class="hero-stat-val" style="color:#d97706;">{{ $stats['total_aduan'] }}</div>
+                <div class="hero-stat-val" style="color:#f59e0b;">{{ $stats['total_aduan'] }}</div>
                 <div class="hero-stat-label">Aduan Ditangani</div>
             </div>
             <div class="hero-stat-card">
-                <div class="hero-stat-icon" style="background:#faf5ff;">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#7c3aed"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+                <div class="hero-stat-icon" style="background:rgba(139,92,246,0.15);">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#8b5cf6"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
                 </div>
-                <div class="hero-stat-val" style="color:#7c3aed;">{{ $stats['total_event'] }}</div>
+                <div class="hero-stat-val" style="color:#8b5cf6;">{{ $stats['total_event'] }}</div>
                 <div class="hero-stat-label">Event Terlaksana</div>
             </div>
         </div>
@@ -964,10 +967,10 @@
 <div class="pengurus-bar">
     <div class="pengurus-bar-inner">
         @foreach([
-            ['icon_color'=>'#dc2626','bg'=>'#fef2f2','jabatan'=>'Ketua RW','wilayah'=>'RW 001 Murni'],
-            ['icon_color'=>'#1d4ed8','bg'=>'#eff6ff','jabatan'=>'Ketua RT 001','wilayah'=>'Wilayah Blok A'],
-            ['icon_color'=>'#1d4ed8','bg'=>'#eff6ff','jabatan'=>'Ketua RT 002','wilayah'=>'Wilayah Blok B'],
-            ['icon_color'=>'#16a34a','bg'=>'#f0fdf4','jabatan'=>'Sekretaris','wilayah'=>'Administrasi RT/RW'],
+            ['icon_color'=>'#3b82f6','bg'=>'rgba(59,130,246,0.15)','jabatan'=>'Ketua RW','wilayah'=>'RW 001 Bugel'],
+            ['icon_color'=>'#06b6d4','bg'=>'rgba(6,182,212,0.15)','jabatan'=>'Ketua RT 001','wilayah'=>'Wilayah Blok A'],
+            ['icon_color'=>'#06b6d4','bg'=>'rgba(6,182,212,0.15)','jabatan'=>'Ketua RT 002','wilayah'=>'Wilayah Blok B'],
+            ['icon_color'=>'#10b981','bg'=>'rgba(16,185,129,0.15)','jabatan'=>'Sekretaris','wilayah'=>'Administrasi RT/RW'],
         ] as $p)
         <div class="pengurus-item">
             <div class="pengurus-icon" style="background:{{ $p['bg'] }};">
@@ -1169,7 +1172,7 @@
             <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 4L4 16v20h10V24h12v12h10V16L20 4z"/></svg>
         </div>
         <h2 class="cta-title">Daftarkan Diri Anda Sekarang</h2>
-        <p class="cta-desc">Bergabunglah dengan warga Murni yang sudah terdaftar dan nikmati kemudahan layanan RT/RW digital.</p>
+        <p class="cta-desc">Bergabunglah dengan warga Jalan Nikel yang sudah terdaftar dan nikmati kemudahan layanan RT/RW digital.</p>
         <div class="cta-buttons">
             @auth
                 <a href="{{ route('dashboard') }}" class="btn-hero-primary">
@@ -1218,7 +1221,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
                     Alamat Sekretariat
                 </div>
-                <p class="kontak-address">Jl. Raya Murni No. XX, RT 001/RW 001<br>Kelurahan Murni, Kecamatan Cilincing<br>Jakarta Utara, DKI Jakarta 14120</p>
+                <p class="kontak-address">Jl. Nikel No. XX, RT 001/RW 001<br>Kelurahan Bugel, Kecamatan Karawaci<br>Kota Tangerang, Banten 15116</p>
             </div>
             <div class="kontak-card">
                 <div class="kontak-card-title">
@@ -1258,11 +1261,11 @@
                         <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 4L4 16v20h10V24h12v12h10V16L20 4z"/></svg>
                     </div>
                     <div>
-                        <div class="footer-brand-name">SIRTRW Murni</div>
+                        <div class="footer-brand-name">SIRTRW Jalan Nikel</div>
                         <div class="footer-brand-sub">Portal Digital RT/RW</div>
                     </div>
                 </div>
-                <p class="footer-desc">Portal digital resmi Rukun Tetangga dan Rukun Warga Murni. Melayani warga dengan transparan dan profesional.</p>
+                <p class="footer-desc">Portal digital resmi Rukun Tetangga dan Rukun Warga Jalan Nikel, Kelurahan Bugel. Melayani warga dengan transparan dan profesional.</p>
                 <div class="footer-online">
                     <div class="footer-online-dot"></div>
                     Sistem Online
@@ -1286,7 +1289,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <span>&copy; {{ date('Y') }} SIRTRW Murni &nbsp;·&nbsp; Portal Digital RT/RW Resmi. Semua hak cipta dilindungi.</span>
+            <span>&copy; {{ date('Y') }} SIRTRW Jalan Nikel &nbsp;·&nbsp; Portal Digital RT/RW Resmi. Semua hak cipta dilindungi.</span>
             <div class="footer-bottom-right">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253M3 12c0 .778.099 1.533.284 2.253"/></svg>
                 Dibuat untuk warga Indonesia
