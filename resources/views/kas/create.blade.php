@@ -1,11 +1,15 @@
 @extends('layouts.app')
 @section('title', 'Catat Transaksi Kas')
-@section('breadcrumb') <a href="{{ route('kas.dashboard') }}">Keuangan</a> <span class="separator">›</span> Catat Transaksi @endsection
+@section('breadcrumb') <a href="{{ route('kas.dashboard') }}" class="hover:text-teal-600 transition">Keuangan</a> @endsection
 
 @section('content')
-<div style="max-width:600px;margin:0 auto">
-<x-card title="Form Pencatatan Transaksi Kas">
-    <form method="POST" action="{{ route('kas.store') }}">
+<div class="max-w-xl mx-auto">
+<div class="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
+    <div class="px-5 py-4 border-b border-slate-100 bg-slate-50/50">
+        <h3 class="text-sm font-extrabold text-slate-900">Form Pencatatan Transaksi Kas</h3>
+    </div>
+    <div class="p-6">
+    <form method="POST" action="{{ route('kas.store') }}" class="space-y-5">
         @csrf
 
         <x-select name="jenis" label="Jenis Transaksi" required="true"
@@ -20,11 +24,12 @@
 
         <x-textarea name="keterangan" label="Keterangan" placeholder="Deskripsi singkat transaksi ini..." rows="3" required="true" />
 
-        <div class="flex gap-3 mt-4">
+        <div class="flex gap-3 pt-2">
             <x-button type="submit" variant="primary">Simpan Transaksi</x-button>
-            <a href="{{ route('kas.dashboard') }}" class="btn btn-outline">Batal</a>
+            <x-button href="{{ route('kas.dashboard') }}" variant="outline">Batal</x-button>
         </div>
     </form>
-</x-card>
+    </div>
+</div>
 </div>
 @endsection

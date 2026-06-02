@@ -1,24 +1,29 @@
 @extends('layouts.app')
 @section('title', 'Edit Event')
-@section('breadcrumb') <a href="{{ route('event.index') }}">Event</a> <span class="separator">›</span> Edit @endsection
+@section('breadcrumb') <a href="{{ route('event.index') }}" class="hover:text-teal-600 transition">Event</a> @endsection
 
 @section('content')
-<div style="max-width:700px;margin:0 auto">
-<x-card title="Edit Event">
-    <form method="POST" action="{{ route('event.update', $event) }}">
+<div class="max-w-2xl mx-auto">
+<div class="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
+    <div class="px-5 py-4 border-b border-slate-100 bg-slate-50/50">
+        <h3 class="text-sm font-extrabold text-slate-900">Edit Event</h3>
+    </div>
+    <div class="p-6">
+    <form method="POST" action="{{ route('event.update', $event) }}" class="space-y-5">
         @csrf @method('PUT')
         <x-input name="judul" label="Nama Event" required="true" :value="$event->judul" />
         <x-textarea name="deskripsi" label="Deskripsi" rows="4" :value="$event->deskripsi" />
-        <div class="grid grid-2 gap-4">
-            <x-input name="tanggal_mulai" label="Tanggal & Waktu Mulai" type="datetime-local" required="true" :value="$event->tanggal_mulai ? \Carbon\Carbon::parse($event->tanggal_mulai)->format('Y-m-d\TH:i') : ''" />
-            <x-input name="tanggal_selesai" label="Tanggal & Waktu Selesai" type="datetime-local" :value="$event->tanggal_selesai ? \Carbon\Carbon::parse($event->tanggal_selesai)->format('Y-m-d\TH:i') : ''" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <x-input name="tanggal_mulai" label="Tanggal &amp; Waktu Mulai" type="datetime-local" required="true" :value="$event->tanggal_mulai ? \Carbon\Carbon::parse($event->tanggal_mulai)->format('Y-m-d\TH:i') : ''" />
+            <x-input name="tanggal_selesai" label="Tanggal &amp; Waktu Selesai" type="datetime-local" :value="$event->tanggal_selesai ? \Carbon\Carbon::parse($event->tanggal_selesai)->format('Y-m-d\TH:i') : ''" />
         </div>
         <x-input name="lokasi" label="Lokasi" :value="$event->lokasi" />
-        <div class="flex gap-3 mt-4">
+        <div class="flex gap-3 pt-2">
             <x-button type="submit" variant="primary">Update Event</x-button>
-            <a href="{{ route('event.index') }}" class="btn btn-outline">Batal</a>
+            <x-button href="{{ route('event.index') }}" variant="outline">Batal</x-button>
         </div>
     </form>
-</x-card>
+    </div>
+</div>
 </div>
 @endsection

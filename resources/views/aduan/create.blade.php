@@ -1,11 +1,15 @@
 @extends('layouts.app')
 @section('title', 'Buat Aduan')
-@section('breadcrumb') <a href="{{ route('aduan.index') }}">Aduan</a> <span class="separator">›</span> Buat Baru @endsection
+@section('breadcrumb') <a href="{{ route('aduan.index') }}" class="hover:text-teal-600 transition">Aduan</a> @endsection
 
 @section('content')
-<div style="max-width:700px;margin:0 auto">
-<x-card title="Form Pengaduan Warga">
-    <form method="POST" action="{{ route('aduan.store') }}">
+<div class="max-w-2xl mx-auto">
+<div class="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
+    <div class="px-5 py-4 border-b border-slate-100 bg-slate-50/50">
+        <h3 class="text-sm font-extrabold text-slate-900">Form Pengaduan Warga</h3>
+    </div>
+    <div class="p-6">
+    <form method="POST" action="{{ route('aduan.store') }}" class="space-y-5">
         @csrf
 
         <x-input name="judul" label="Judul Aduan" placeholder="Ringkasan singkat masalah yang ingin dilaporkan" required="true" />
@@ -14,7 +18,7 @@
             name="kategori"
             label="Kategori Masalah"
             required="true"
-            :options="['KEAMANAN'=>'🔒 Keamanan Lingkungan','FASILITAS'=>'🏗️ Fasilitas Umum','KEBERSIHAN'=>'🧹 Kebersihan','PERSELISIHAN'=>'⚖️ Perselisihan Warga']"
+            :options="['KEAMANAN'=>'Keamanan Lingkungan','FASILITAS'=>'Fasilitas Umum','KEBERSIHAN'=>'Kebersihan','PERSELISIHAN'=>'Perselisihan Warga']"
         />
 
         <x-textarea
@@ -25,11 +29,12 @@
             required="true"
         />
 
-        <div class="flex gap-3 mt-4">
+        <div class="flex gap-3 pt-2">
             <x-button type="submit" variant="primary">Kirim Aduan</x-button>
-            <a href="{{ route('aduan.index') }}" class="btn btn-outline">Batal</a>
+            <x-button href="{{ route('aduan.index') }}" variant="outline">Batal</x-button>
         </div>
     </form>
-</x-card>
+    </div>
+</div>
 </div>
 @endsection

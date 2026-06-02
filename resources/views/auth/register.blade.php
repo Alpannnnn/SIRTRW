@@ -3,12 +3,14 @@
 
 @section('content')
 
-<div class="auth-form-title">Daftar Akun Warga Baru</div>
-<div class="auth-form-sub">Isi data diri Anda sesuai KTP. Akun akan diverifikasi pengurus RT.</div>
+<h2 class="auth-form-title">Daftar Akun Warga Baru</h2>
+<p class="auth-form-sub">Isi data diri Anda sesuai KTP. Akun akan diverifikasi pengurus RT.</p>
 
 {{-- Info Verifikasi --}}
 <div class="af-info-box">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"/>
+    </svg>
     <div>
         Setelah mendaftar, akun Anda akan diverifikasi terlebih dahulu oleh Pengurus RT/RW sebelum bisa digunakan.
     </div>
@@ -16,9 +18,11 @@
 
 {{-- Error Global --}}
 @if($errors->any())
-<div class="af-info-box" style="background:#fef2f2;border-color:#fca5a5;color:#991b1b;margin-bottom:18px;">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
-    <div>
+<div class="bg-red-50 border border-red-200 text-red-800 rounded-xl p-4 text-sm leading-relaxed mb-6 flex gap-3 items-start">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/>
+    </svg>
+    <div class="font-medium space-y-0.5">
         @foreach($errors->all() as $err)
             <div>{{ $err }}</div>
         @endforeach
@@ -83,8 +87,8 @@
     </div>
 
     {{-- No. Telepon & Blok Rumah --}}
-    <div class="af-row">
-        <div class="af-group" style="margin-bottom:0;">
+    <div class="af-row mb-4">
+        <div>
             <label class="af-label" for="no_telepon">
                 No. WhatsApp
                 <span class="required">*</span>
@@ -106,7 +110,7 @@
             </div>
             @enderror
         </div>
-        <div class="af-group" style="margin-bottom:0;">
+        <div>
             <label class="af-label" for="blok_rumah">
                 Blok / No. Rumah
                 <span class="required">*</span>
@@ -129,12 +133,9 @@
         </div>
     </div>
 
-    {{-- Spacer --}}
-    <div style="margin-bottom:18px;"></div>
-
     {{-- RT & RW --}}
-    <div class="af-row">
-        <div class="af-group" style="margin-bottom:0;">
+    <div class="af-row mb-4">
+        <div>
             <label class="af-label" for="rt_id">
                 RT
                 <span class="required">*</span>
@@ -152,7 +153,7 @@
             </div>
             @enderror
         </div>
-        <div class="af-group" style="margin-bottom:0;">
+        <div>
             <label class="af-label" for="rw_id">
                 RW
                 <span class="required">*</span>
@@ -171,9 +172,6 @@
             @enderror
         </div>
     </div>
-
-    {{-- Spacer --}}
-    <div style="margin-bottom:18px;"></div>
 
     {{-- Password --}}
     <div class="af-group">
@@ -220,8 +218,8 @@
     </div>
 
     {{-- Submit --}}
-    <button type="submit" class="af-submit" style="margin-top:6px;">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"/></svg>
+    <button type="submit" class="af-submit mt-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"/></svg>
         Daftar Akun Sekarang
     </button>
 </form>
