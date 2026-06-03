@@ -11,10 +11,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="font-sans antialiased bg-stone-50 text-stone-800 min-h-screen flex flex-col" x-data="{ nav: false }">
+<body class="font-sans antialiased bg-stone-50 text-stone-800 min-h-screen flex flex-col" x-data="{ nav: false, scrolled: false }" @scroll.window="scrolled = window.scrollY > 20">
 
 {{-- NAVBAR --}}
-<header class="bg-white/90 backdrop-blur border-b border-stone-200 sticky top-0 z-50">
+<header class="sticky top-0 z-50 transition-all duration-300" :class="scrolled ? 'bg-white/80 backdrop-blur-xl border-b border-stone-200/80 shadow-sm' : 'bg-white border-b border-stone-200'">
     <div class="max-w-5xl mx-auto px-5">
         <div class="flex items-center justify-between h-16">
             <a href="{{ route('home') }}" class="flex items-center gap-3">
@@ -49,7 +49,7 @@
             </button>
         </div>
     </div>
-    <div x-show="nav" x-transition class="md:hidden border-t border-stone-100 bg-white" style="display:none">
+    <div x-show="nav" x-transition class="md:hidden border-t border-stone-100 bg-white/95 backdrop-blur-xl" style="display:none">
         <div class="px-5 py-3 space-y-1">
             <a href="#pengumuman" @click="nav=false" class="block py-2.5 px-3 text-sm font-medium text-stone-700 hover:bg-stone-50 rounded-lg">Pengumuman</a>
             <a href="#agenda" @click="nav=false" class="block py-2.5 px-3 text-sm font-medium text-stone-700 hover:bg-stone-50 rounded-lg">Agenda</a>
@@ -316,50 +316,94 @@
 </section>
 
 {{-- FOOTER --}}
-<footer class="bg-stone-900 text-stone-400 py-10 scroll-mt-20" id="kontak">
-    <div class="max-w-5xl mx-auto px-5">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div>
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-9 h-9 bg-emerald-700 rounded-xl flex items-center justify-center flex-shrink-0">
+<footer class="bg-stone-950 text-stone-400 scroll-mt-20" id="kontak">
+
+    {{-- Main footer content --}}
+    <div class="max-w-5xl mx-auto px-5 py-14">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+
+            {{-- Brand col --}}
+            <div class="md:col-span-5">
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="w-10 h-10 bg-emerald-700 rounded-xl flex items-center justify-center flex-shrink-0">
                         <svg class="w-5 h-5 fill-white" viewBox="0 0 40 40"><path d="M20 4L4 16v20h10V24h12v12h10V16L20 4z"/></svg>
                     </div>
                     <div>
-                        <div class="text-sm font-bold text-white">Portal RT/RW Jalan Nikel</div>
-                        <div class="text-[11px] text-stone-500">Kel. Bugel, Kota Tangerang</div>
+                        <div class="text-[15px] font-extrabold text-white leading-tight">Portal RT/RW Jalan Nikel</div>
+                        <div class="text-xs text-stone-500 mt-0.5">Kelurahan Bugel, Kota Tangerang</div>
                     </div>
                 </div>
-                <p class="text-sm text-stone-500 leading-relaxed">Sistem informasi untuk pelayanan warga yang lebih mudah, cepat, dan transparan.</p>
+                <p class="text-sm text-stone-500 leading-relaxed mb-6">
+                    Sistem informasi digital untuk warga RT 001 &amp; RT 002 / RW 001, Kelurahan Bugel. Pelayanan lebih mudah, cepat, dan transparan.
+                </p>
+                {{-- Jam pelayanan badge --}}
+                <div class="inline-flex items-center gap-2 bg-stone-900 border border-stone-800 text-stone-400 text-xs font-medium px-3 py-2 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                    Pelayanan Senin–Jumat · 08.00–16.00 WIB
+                </div>
             </div>
-            <div>
-                <h4 class="text-xs font-bold text-stone-300 uppercase tracking-widest mb-4">Navigasi</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#pengumuman" class="hover:text-emerald-400 transition">Pengumuman</a></li>
-                    <li><a href="#agenda" class="hover:text-emerald-400 transition">Agenda</a></li>
-                    <li><a href="#layanan" class="hover:text-emerald-400 transition">Layanan</a></li>
-                    <li><a href="{{ route('login') }}" class="hover:text-emerald-400 transition">Masuk</a></li>
-                    <li><a href="{{ route('register') }}" class="hover:text-emerald-400 transition">Daftar Baru</a></li>
+
+            {{-- Spacer --}}
+            <div class="hidden md:block md:col-span-1"></div>
+
+            {{-- Nav col --}}
+            <div class="md:col-span-3">
+                <h4 class="text-[11px] font-bold text-stone-300 uppercase tracking-[0.12em] mb-5">Halaman</h4>
+                <ul class="space-y-3">
+                    <li><a href="#pengumuman" class="text-sm text-stone-500 hover:text-emerald-400 transition-colors flex items-center gap-2">
+                        <span class="w-1 h-1 rounded-full bg-stone-700 flex-shrink-0"></span>Pengumuman
+                    </a></li>
+                    <li><a href="#agenda" class="text-sm text-stone-500 hover:text-emerald-400 transition-colors flex items-center gap-2">
+                        <span class="w-1 h-1 rounded-full bg-stone-700 flex-shrink-0"></span>Agenda Kegiatan
+                    </a></li>
+                    <li><a href="#layanan" class="text-sm text-stone-500 hover:text-emerald-400 transition-colors flex items-center gap-2">
+                        <span class="w-1 h-1 rounded-full bg-stone-700 flex-shrink-0"></span>Layanan Warga
+                    </a></li>
+                    <li><a href="{{ route('login') }}" class="text-sm text-stone-500 hover:text-emerald-400 transition-colors flex items-center gap-2">
+                        <span class="w-1 h-1 rounded-full bg-stone-700 flex-shrink-0"></span>Masuk
+                    </a></li>
+                    <li><a href="{{ route('register') }}" class="text-sm text-stone-500 hover:text-emerald-400 transition-colors flex items-center gap-2">
+                        <span class="w-1 h-1 rounded-full bg-stone-700 flex-shrink-0"></span>Daftar Warga Baru
+                    </a></li>
                 </ul>
             </div>
-            <div>
-                <h4 class="text-xs font-bold text-stone-300 uppercase tracking-widest mb-4">Kontak</h4>
-                <ul class="space-y-3 text-sm text-stone-500">
-                    <li class="flex items-start gap-2.5">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
-                        Jalan Nikel, Kel. Bugel,<br>Kota Tangerang, Banten
+
+            {{-- Alamat col --}}
+            <div class="md:col-span-3">
+                <h4 class="text-[11px] font-bold text-stone-300 uppercase tracking-[0.12em] mb-5">Alamat</h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <div class="w-7 h-7 bg-stone-900 border border-stone-800 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5 text-emerald-500"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+                        </div>
+                        <div class="text-sm text-stone-500 leading-relaxed">
+                            Jalan Nikel, Kelurahan Bugel,<br>Kota Tangerang, Banten
+                        </div>
                     </li>
-                    <li class="flex items-center gap-2.5">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-emerald-600 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
-                        Senin–Jumat · 08.00–16.00 WIB
+                    <li class="flex items-start gap-3">
+                        <div class="w-7 h-7 bg-stone-900 border border-stone-800 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5 text-emerald-500"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
+                        </div>
+                        <div class="text-sm text-stone-500">
+                            Hubungi pengurus RT/RW setempat
+                        </div>
                     </li>
                 </ul>
             </div>
-        </div>
-        <div class="border-t border-stone-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2">
-            <p class="text-xs text-stone-600">&copy; {{ date('Y') }} Portal RT/RW Jalan Nikel · Kelurahan Bugel</p>
-            <p class="text-xs text-stone-700">SIRTRW v1.0</p>
         </div>
     </div>
+
+    {{-- Bottom bar --}}
+    <div class="border-t border-stone-900">
+        <div class="max-w-5xl mx-auto px-5 py-5 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <p class="text-xs text-stone-600">&copy; {{ date('Y') }} Portal RT/RW Jalan Nikel &middot; Kelurahan Bugel, Kota Tangerang</p>
+            <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
+                <p class="text-xs text-stone-600">SIRTRW v1.0 &mdash; Aktif</p>
+            </div>
+        </div>
+    </div>
+
 </footer>
 
 </body>
