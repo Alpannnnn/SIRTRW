@@ -14,9 +14,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
     @stack('styles')
 </head>
-<body class="h-full font-sans antialiased text-slate-900 bg-slate-50" x-data="{ sidebarOpen: false }">
+<body class="font-sans antialiased text-slate-900 bg-slate-50" x-data="{ sidebarOpen: false }">
 
-<div class="min-h-screen flex flex-col lg:flex-row">
     {{-- Mobile Overlay --}}
     <div class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-40 lg:hidden" 
          x-show="sidebarOpen" 
@@ -25,8 +24,8 @@
          style="display:none;"></div>
 
     {{-- Sidebar --}}
-    <aside class="fixed inset-y-0 left-0 w-64 bg-white border-r border-slate-200 flex flex-col z-50 transform transition-transform duration-200 lg:static lg:translate-x-0"
-           :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'">
+    <aside class="fixed inset-y-0 left-0 w-64 bg-white border-r border-slate-200 flex flex-col z-50 transform transition-transform duration-200 lg:translate-x-0"
+           :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
         
         <div class="p-6 border-b border-slate-100 flex items-center justify-between">
             <div>
@@ -62,7 +61,7 @@
                     </a>
 
                     <a href="{{ route('kas.dashboard') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition duration-150 {{ request()->routeIs('kas.*') ? 'bg-teal-50 text-teal-700 border-l-4 border-teal-700' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900' }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 0 0-2.25-2.25H15a3 3 0 1 1-6 0H5.25A2.25 2.25 0 0 0 3 12m18 0v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 9m18 0V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v3"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"/></svg>
                         Keuangan Kas
                     </a>
 
@@ -72,29 +71,28 @@
                     </a>
 
                     <a href="{{ route('inventaris.katalog') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition duration-150 {{ request()->routeIs('inventaris.*') ? 'bg-teal-50 text-teal-700 border-l-4 border-teal-700' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900' }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></svg>
                         Inventaris Barang
                     </a>
 
                     <a href="{{ route('peminjaman.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition duration-150 {{ request()->routeIs('peminjaman.*') ? 'bg-teal-50 text-teal-700 border-l-4 border-teal-700' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900' }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
                         Peminjaman
                     </a>
                 </div>
             </div>
 
             @auth
-                @if(auth()->user()->isPengurusRt() || auth()->user()->isPengurusRw())
-                    <div class="border-t border-slate-100 my-4 pt-4">
-                        <div class="px-3 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Manajemen</div>
-
-                        <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition duration-150 {{ request()->routeIs('admin.*') ? 'bg-teal-50 text-teal-700 border-l-4 border-teal-700' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900' }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0H3"/></svg>
+                @if(auth()->user()->role === 'pengurus_rt' || auth()->user()->role === 'pengurus_rw')
+                    <div class="space-y-1">
+                        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-3 mb-2">Manajemen</div>
+                        <a href="{{ route('dashboard') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition duration-150 {{ request()->routeIs('dashboard') && request()->is('admin') ? 'bg-teal-50 text-teal-700 border-l-4 border-teal-700' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900' }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25"/></svg>
                             Panel Admin
                         </a>
 
                         <a href="{{ route('verifikasi.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition duration-150 {{ request()->routeIs('verifikasi.*') ? 'bg-teal-50 text-teal-700 border-l-4 border-teal-700' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900' }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/></svg>
                             Verifikasi Warga
                         </a>
 
@@ -107,10 +105,10 @@
             @endauth
         </nav>
 
-        <div class="p-4 border-t border-slate-100 bg-slate-50/50">
+        <div class="p-4 border-t border-slate-100 bg-slate-50/50 shrink-0">
             @auth
                 <div class="flex items-center gap-3 mb-3 p-1">
-                    <div class="w-9 h-9 rounded-full bg-teal-100 text-teal-800 font-extrabold flex items-center justify-center text-sm shadow-inner">
+                    <div class="w-9 h-9 shrink-0 rounded-full bg-teal-100 text-teal-800 font-extrabold flex items-center justify-center text-sm shadow-inner">
                         {{ strtoupper(substr(auth()->user()->nama_lengkap, 0, 2)) }}
                     </div>
                     <div class="flex-1 min-w-0">
@@ -130,8 +128,8 @@
     </aside>
 
     {{-- Main Content Area --}}
-    <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
-        <header class="bg-white border-b border-slate-200 h-16 flex items-center justify-between px-6 flex-shrink-0">
+    <div class="lg:ml-64 flex flex-col min-h-screen">
+        <header class="bg-white border-b border-slate-200 h-16 flex items-center justify-between px-6 sticky top-0 z-40">
             <div class="flex items-center gap-4">
                 <button class="lg:hidden text-slate-500 hover:text-slate-700 focus:outline-none" @click="sidebarOpen = !sidebarOpen">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
@@ -152,7 +150,7 @@
             </div>
         </header>
 
-        <main class="flex-1 overflow-y-auto p-6 bg-slate-50/50">
+        <main class="flex-1 p-6 bg-slate-50/50">
             {{-- Flash Messages --}}
             @if(session('success'))
                 <div class="mb-5 flex items-center justify-between gap-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl px-5 py-4 text-sm font-semibold shadow-sm" x-data="{ show: true }" x-show="show" x-transition>

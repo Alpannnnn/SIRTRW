@@ -34,7 +34,7 @@
                 <th>Tanggal Pinjam</th>
                 <th>Rencana Kembali</th>
                 <th>Status</th>
-                <th>Aksi</th>
+                @if(!auth()->user()->isWarga())<th>Aksi</th>@endif
             </tr>
         </thead>
         <tbody>
@@ -61,6 +61,7 @@
                     @php $sMap=['MENUNGGU_PERSETUJUAN'=>'warning','ON_USE'=>'info','RETURNED'=>'muted','REJECTED'=>'danger','APPROVED'=>'primary']; @endphp
                     <x-badge variant="{{ $sMap[$p->status_peminjaman] ?? 'muted' }}">{{ str_replace('_',' ',$p->status_peminjaman) }}</x-badge>
                 </td>
+                @if(!auth()->user()->isWarga())
                 <td>
                     @if(auth()->user()->isPengurusRt() || auth()->user()->isPengurusRw())
                         @if($p->status_peminjaman === 'MENUNGGU_PERSETUJUAN')
@@ -86,9 +87,10 @@
                         @endif
                     @endif
                 </td>
+                @endif
             </tr>
             @empty
-            <tr><td colspan="7" class="text-center text-slate-400 font-semibold p-8">Belum ada data peminjaman.</td></tr>
+            <tr><td colspan="{{ auth()->user()->isWarga() ? 5 : 7 }}" class="text-center text-slate-400 font-semibold p-8">Belum ada data peminjaman.</td></tr>
             @endforelse
         </tbody>
     </x-table>
