@@ -16,11 +16,7 @@
     {{-- Top Navbar --}}
     <header class="bg-white border-b border-stone-200 h-16 flex items-center justify-between px-6 flex-shrink-0 z-10">
         <a href="{{ route('home') }}" class="flex items-center gap-2.5">
-            <div class="w-9 h-9 bg-emerald-700 text-white rounded-xl flex items-center justify-center font-extrabold text-sm shadow-sm">
-                <svg class="w-5 h-5 fill-white" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 4L4 16v20h10V24h12v12h10V16L20 4z"/>
-                </svg>
-            </div>
+            <img src="{{ asset('images/logo.png') }}" alt="Logo SIRTRW" class="w-9 h-9 object-contain rounded-lg">
             <div>
                 <div class="text-sm font-extrabold text-stone-900 tracking-tight leading-none">Portal RT/RW</div>
                 <div class="text-[10px] text-stone-500 font-medium tracking-wide mt-1">Jl. Nikel · Kel. Bugel, Tangerang</div>
