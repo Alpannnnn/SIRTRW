@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
@@ -19,6 +20,17 @@ use App\Http\Controllers\AdminController;
 
 // Public Landing Page (tanpa login)
 Route::get('/', [PublicController::class, 'landing'])->name('home');
+
+// Route to run migrations and seeders in serverless environment
+Route::get('/run-migration', function () {
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        Artisan::call('db:seed', ['--force' => true]);
+        return "Migration and seeding completed successfully!<br><pre>" . Artisan::output() . "</pre>";
+    } catch (\Exception $e) {
+        return "Error: " . $e->getMessage();
+    }
+});
 
 // ── Guest Routes ──
 Route::middleware('guest')->group(function () {
