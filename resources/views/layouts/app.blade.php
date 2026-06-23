@@ -28,9 +28,12 @@
            :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
         
         <div class="p-6 border-b border-slate-100 flex items-center justify-between">
-            <div>
-                <h1 class="text-xl font-extrabold text-teal-700 tracking-wide m-0">SIRTRW</h1>
-                <p class="text-[10px] text-slate-500 font-semibold m-0 mt-0.5 uppercase tracking-wider">Portal Digital RT/RW</p>
+            <div class="flex items-center gap-3">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo SIRTRW" class="w-10 h-10 object-contain rounded-lg">
+                <div class="leading-tight">
+                    <h1 class="text-lg font-extrabold text-teal-700 tracking-wide m-0">SIRTRW</h1>
+                    <p class="text-[9px] text-slate-500 font-semibold m-0 mt-0.5 uppercase tracking-wider">Portal Digital RT/RW</p>
+                </div>
             </div>
             <button class="lg:hidden text-slate-500 hover:text-slate-700" @click="sidebarOpen = false">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>

@@ -25,9 +25,7 @@
 
             {{-- Logo --}}
             <a href="{{ route('home') }}" class="flex items-center gap-2.5 flex-shrink-0">
-                <div class="w-9 h-9 bg-emerald-700 rounded-xl flex items-center justify-center shadow-sm">
-                    <svg class="w-5 h-5 fill-white" viewBox="0 0 40 40"><path d="M20 4L4 16v20h10V24h12v12h10V16L20 4z"/></svg>
-                </div>
+                <img src="{{ asset('images/logo.png') }}" alt="Logo SIRTRW" class="w-9 h-9 object-contain rounded-lg">
                 <div class="leading-tight">
                     <div class="text-sm font-extrabold text-stone-900">Portal RT/RW</div>
                     <div class="text-[10px] font-medium text-stone-500">Jl. Nikel · Kel. Bugel, Tangerang</div>
